@@ -16,54 +16,22 @@ private:
 
 public:
 
-	Tank() {
+	    Tank();
+	    Tank(string init_model, string init_country, double init_mass, string init_type, double init_cost);
 
-		model = "unknown";
-		country = "unknown";
-		mass = 0;
-		type = "unknown";
-		cost = 0;
+	    string info();
 
-	}
+		void setModel(string init_model);
+		string getModel();
+		void setCountry(string init_country);
+		string getCountry();
+		void setMass(double init_mass);
+		double getMass();
+		void setType(string init_type);
+		string getType();
+		void setCost(double init_cost);
+		double getCost();
 
-	Tank(string init_model, string init_country, double init_mass, string init_type, double init_cost) {
+		~Tank();
 
-		model = init_model;
-		country = init_country;
-		mass = init_mass;
-		type = init_type;
-		cost = init_cost;
-
-	}
-
-	string info() {
-
-		return "model: " + model + "\n" + "country: " + country + "\n" + "mass: " + to_string(mass) + "\n" + "type: " + type + "\n" + "cost in dollars: " + to_string(cost);
-	}
-
-	void setModel(string init_model) {
-		model = init_model;
-	}
-
-	void setCountry(string init_country) {
-		country = init_country;
-	}
-
-	void setMass(double init_mass) {
-		if (init_mass > 0) {
-			mass = init_mass;
-		}
-	}
-
-	void setType(string init_type) {
-		type = init_type;
-	}
-
-	void setCost(double init_cost) {
-		cost = init_cost;
-	}
-
-	~Tank() {
-
-	}
 };
