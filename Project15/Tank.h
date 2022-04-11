@@ -18,6 +18,8 @@ public:
 
 	    Tank();
 	    Tank(string init_model, string init_country, double init_mass, string init_type, double init_cost);
+		Tank(Tank &tank);
+		void extraConstructor();
 
 	    string info();
 

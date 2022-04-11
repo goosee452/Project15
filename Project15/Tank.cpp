@@ -24,6 +24,26 @@ Tank::Tank(string init_model, string init_country, double init_mass, string init
 
 }
 
+Tank::Tank(Tank& tank) {
+
+	model = tank.model;
+	country = tank.country;
+	mass = tank.mass;
+	type = tank.type;
+	cost = tank.cost;
+
+}
+
+void Tank::extraConstructor() {
+
+	model = "unknown";
+	country = "unknown";
+	mass = 0;
+	type = "unknown";
+	cost = 0;
+
+}
+
 string Tank::info() {
 
 	return "model: " + model + "\n" + "country: " + country + "\n" + "mass: " + to_string(mass) + "\n" + "type: " + type + "\n" + "cost in dollars: " + to_string(cost);

@@ -25,7 +25,7 @@ public:
 	string getMembersInfo();
 
 	void add(int quantity);
-	void remove(int quantity, int place);
+	void remove( int place);
 
 	~Division();
 };
