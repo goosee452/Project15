@@ -81,63 +81,48 @@ int main() {
 
 
 				if (buttonSymbolValue == ENTER_BUTTON) {
+					Tank tempTank;
+					tempTank = division1.getTank(cursorPos);
+						
 					switch (actionCursorPos) {
 					case 0: {
 						string model;
 						cout << "enter model: ";
 						cin >> model;
-						Tank tempTank;
-						tempTank = division1.getTank(cursorPos);
 						tempTank.setModel(model);
-						division1.copyTankProps(tempTank, cursorPos);
-						system("cls");
 						break;
 					}
 					case 1: {
 						string country;
 						cout << "enter country: ";
 						cin >> country;
-						Tank tempTank;
-						tempTank = division1.getTank(cursorPos);
 						tempTank.setCountry(country);
-						division1.copyTankProps(tempTank, cursorPos);
-						system("cls");
 						break;
 					}
 					case 2: {
 						double mass;
 						cout << "enter mass: ";
 						cin >> mass;
-						Tank tempTank;
-						tempTank = division1.getTank(cursorPos);
 						tempTank.setMass(mass);
-						division1.copyTankProps(tempTank, cursorPos);
-						system("cls");
 						break;
 					}
 					case 3: {
 						string type;
 						cout << "enter type: ";
 						cin >> type;
-						Tank tempTank;
-						tempTank = division1.getTank(cursorPos);
 						tempTank.setType(type);
-						division1.copyTankProps(tempTank, cursorPos);
-						system("cls");
 						break;
 					}
 					case 4: {
 						double cost;
 						cout << "enter cost: ";
 						cin >> cost;
-						Tank tempTank;
-						tempTank = division1.getTank(cursorPos);
 						tempTank.setCost(cost);
-						division1.copyTankProps(tempTank, cursorPos);
-						system("cls");
 						break;
 					}
 					}
+					division1.copyTankProps(tempTank, cursorPos);
+					system("cls");					
 				}
 
 
