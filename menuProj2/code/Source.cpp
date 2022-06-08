@@ -11,6 +11,7 @@
 #define HOME_BUTTON 75
 #define END_BUTTON 77
 #define NONE 0
+
 int main() {
 
 	cout << getStartScreen();
@@ -21,14 +22,14 @@ int main() {
 	int actionCursorPos = 0;
 	int buttonSymbolValue = 0;
 
-	const int MACTLactionNamesQuant = 3;
-	string MCATLactionNames[MACTLactionNamesQuant]{ "add member", "set name", "remove tank"};
+	const int MACTLactionNamesQuant = 10;
+	string MCATLactionNames[MACTLactionNamesQuant]{ "add member","set name", "remove tank", "sort by cost", "sort by mass", "find by model", "find by cost diapason", "find by mass diapason", "find by type", "find by country"};
 
 	const int tanksActionListQuant = 5;
 	string tanksActionListNames[tanksActionListQuant]{ "set model", "set country", "set mass", "set type", "set cost" };
 
-	const int divisionListMACTLnamesQuant = 2;
-	string divisionListMACTLnames[divisionListMACTLnamesQuant]{ "add", "remove"};
+	const int divisionListMACTLnamesQuant = 3;
+	string divisionListMACTLnames[divisionListMACTLnamesQuant]{ "add", "remove", "find by name"};
 
 	int divisionListCursorPos = 0;
 	int divisionsQuant = 0;
@@ -74,6 +75,13 @@ int main() {
 							divisions = removeDivision(place, divisionsQuant, divisions);
 							divisionsQuant -= 1;
 						}
+						break;
+					}
+					case 2: {
+						string name;
+						cout << "\nenter name: ";
+						cin >> name;
+						divisions = findByName(name, divisions, divisionsQuant);
 						break;
 					}
 					}
@@ -122,6 +130,49 @@ int main() {
 								cout << "\nenter place: ";
 								cin >> place;
 								divisions[divisionListCursorPos].remove(place);
+								break;
+							}
+							case 3: {
+								sortTanksByCost(divisions[divisionListCursorPos]);
+								break;
+							}
+							case 4: {
+								sortTanksByMass(divisions[divisionListCursorPos]);
+								break;
+							}
+							case 5: {
+								string model;
+								cout << "\nenter model: ";
+								cin >> model;
+								findTanksByModel(model, divisions[divisionListCursorPos]);
+								break;
+							}
+							case 6:{
+								double minBorder, maxBorder;
+								cout << "\nenter diapason(from to): ";
+								cin >> minBorder >> maxBorder;
+								findTanksByCostDiapason(minBorder, maxBorder, divisions[divisionListCursorPos]);
+								break;
+							}
+							case 7: {
+								double minBorder, maxBorder;
+								cout << "\nenter diapason(from to): ";
+								cin >> minBorder >> maxBorder;
+								findTanksByMassDiapason(minBorder, maxBorder, divisions[divisionListCursorPos]);
+								break;
+							}
+							case 8: {
+								string type;
+								cout << "\nenter type: ";
+								cin >> type;
+								findTanksByType(type, divisions[divisionListCursorPos]);
+								break;
+							}
+							case 9: {
+								string country;
+								cout << "\nenter country: ";
+								cin >> country;
+								findTanksByCountry(country, divisions[divisionListCursorPos]);
 								break;
 							}
 							}

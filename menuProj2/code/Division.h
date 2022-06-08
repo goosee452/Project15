@@ -10,10 +10,11 @@ private:
 
 	string name;
 	int tankQuantity;
-	Tank* tanks;
+	
 
 public:
 
+    Tank* tanks;
 	Division();
 	Division(string initName, int initTankQuantity);
 	Division(Division& division);
